@@ -1,4 +1,4 @@
-$(document).on('ready', function() {
+$(document).ready(function() {
   // check to make sure JS is loaded
   console.log('JS is loaded!');
 
@@ -9,12 +9,11 @@ $(document).on('ready', function() {
 
   /* Create player object and run through template */
   var playerArray = [
-    new Player("Player 1", "doge", "very blue", "much cheese", "wow."),
+    new Player("Player 1", "doge", "very blue", "much cheese", "so wow"),
     new Player("Player 2", "Grumpy Cat", "No.", "Your soul.", "meh."),
   ];
   var renderedHTML = template({ players: playerArray });
   $('.playerStats').append(renderedHTML);
-});
 
 /* Player Object Constructor */
 function Player(player, name, favColor, favFood, motto){
@@ -27,58 +26,57 @@ function Player(player, name, favColor, favFood, motto){
     this.motto = motto;
     /* End Object Attributes */
 }
-$(function() {
-  // global variables
-  $reset = $('#reset');
-  var winner = '';
 
-  //reset to initial state of race
-  var raceAgain = function() {
-    $reset.addClass('tmp-hidden');
-    $('.player').css({left: 0});
-    winner = '';
-  };
+    //* Declare global variables
+    var $doge = $('#doge');
+    var $grumpy = $('#grumpy');
+    $reset = $('#reset');
 
-  //show confetti and reset button when winner declared
-  var executeWin = function() {
-    $reset.removeClass('tmp-hidden');
-  };
+    //Reset game
+      $('.btn').on('click', function() {
+        $reset.addClass('tmp-hidden');
+        raceHandler();
+        $doge.css({left: 0});
+        $grumpy.css({left: 0});
+      });
 
-  // take keypress event and move correct player
-  var movePlayer = function(keypressEvent) {
+    // reset button when winner declared
+    var showReset = function() {
+      $reset.removeClass('tmp-hidden');
+    };
 
-    // returns key like 'a', 'l', etc.
-    var keyCode = String.fromCharCode(keypressEvent.keyCode);
+  //call function to initialize game
+  raceHandler();
 
-    // find player and player's position
-    var $player = $('[data-key="' + keyCode + '"]');
-    var leftPosition = $player.offset().left;
+    //* Player handler and check winner handler
+    function raceHandler () {
+      $(window).on('keypress', function(e) {
 
-    // set player's new position (move forward)
-    $player.css({left: leftPosition + 10});
+         //* Declare all local variables
+          var dogePosition = $('#doge').position().left;
+           var grumpyPosition = $('#grumpy').position().left;
+                var $track = $('#track').width();
 
-    // if player moved past end of track
-    if ($player.offset().left >= $('#track').width() - $player.width()) {
+        if ( (e.which === 97) && (dogePosition <  ($track * 0.90)) ) {
+          $doge.animate({'left': '+=50px'}, 10);
+        }
 
-      // set winner to player and execute win
-      winner = $player;
-      executeWin();
-      alert('Game over! Press Reset to play again.');
+        else if ( (e.which === 97) && (dogePosition > ($track * 0.90) ) ) {
+          $(window).off('keypress');
+          showReset();
+          alert('doge wins such happy');
+        }
+
+        if ( (e.which === 108) && (grumpyPosition <  ($track * 0.90)) ) {
+          $grumpy.animate({left: '+=50px'}, 10);
+        }
+
+        else if ( (e.which === 108) && (grumpyPosition > ($track * 0.90) ) ) {
+          $(window).off('keypress');
+          showReset();
+          alert ('Grumpy Cat wins? Whatever.');
+        }
+      });
     }
-  };
-
-  // add event-handlers
-  var race = function() {
-    $(window).on('keypress', function(event) {
-      if (!winner) {
-        movePlayer(event);
-      }
-    });
-    $reset.on('click', function() {
-      raceAgain();
-    });
-  };
-
-  // start the race!
-  race();
+// * End of document
 });

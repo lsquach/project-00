@@ -1,47 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
+  <meta charset='UTF-8'>
 
-  <!-- set viewport to device width to make site responsive -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- set viewport to device width to help make site responsive -->
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <title>Super Awesome Race</title>
 
   <!-- bootstrap css -->
-  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link type='text/css' rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
 
   <!-- custom styles -->
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel='stylesheet' type='text/css' href='styles/styles.css'>
+
   <!-- jquery -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-2.2.2.min.js'></script>
+  <!-- custom javascript -->
+  <script type='text/javascript' src='scripts/app.js'></script>
 
-  <!-- Handlebars -->
+  <!-- handlebars -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-
-  <!-- custom script -->
-  <script type="text/javascript" src="scripts/app.js"></script>
-
   <!--Set font -->
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
-  <title>Super Awesome Racing Game</title>
+
 </head>
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 main">
-        <div class="header">
-          <h1>Super Awesome Race</h1>
-        </div>
-        <div id="track">
-          <div class="img"><img class="player" data-key="a" src="doge.png"></div>
-          <br>
-          <div class="img"><img class="player" data-key="l" src="grumpy.png"></div>
-        </div>
-        <br>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="header">
+            <h1>Super Awesome Race</h1>
+          </div>
+            <div id='track'>
+              <div class="img"><img class="player" src="doge.png" id="doge"></div>
+              <br>
+              <div class="img"><img class="player" src="grumpy.png" id="grumpy"></div>
+            </div>
+          <div class="bottom">
         <div class="info"><p>To play as doge, press 'A'. To play as Grumpy Cat, press 'L'.</p></div>
+        <h2 class="playerHeader">Players Stats</h2>
         <div class="playerStats">
           <script id="players-template" type="text/x-handlebars-template">
-          {{#each players}}
+            {{#each players}}
             <div class="inline">
               <ul>
                 <h2>{{player}}</h2>
@@ -51,12 +53,13 @@
                 <li>Motto: {{motto}}</li>
               </ul>
             </div>
-          {{/each}}
-        </script>
+            {{/each}}
+          </script>
         </div>
       <button class="btn btn-lg btn-reset tmp-hidden" id="reset">Reset</button>
       </div>
     </div>
   </div>
+</div>
 </body>
 </html>
