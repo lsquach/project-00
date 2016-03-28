@@ -74,7 +74,7 @@ function Player(player, name, favColor, favFood, motto){
           else if ((e.which === 108) && (grumpyPosition > ($track * 0.90))) {
             $(window).off('keypress');
             showReset();
-            alert ('Grumpy Cat wins? Whatever.');
+            alert ('So, Grumpy Cat wins? Who cares.');
           }
       });
     }
