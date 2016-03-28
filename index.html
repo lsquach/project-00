@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- set viewport to device width to make site responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootstrap css -->
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- custom styles -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <!-- jquery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <!-- Handlebars -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+  <!-- custom script -->
+  <script type="text/javascript" src="scripts/app.js"></script>
+
+  <!--Set font -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+  <title>Super Awesome Racing Game</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 main">
+        <div class="header">
+          <h1>Super Awesome Race</h1>
+        </div>
+        <div id="track">
+          <div class="img"><img class="player" data-key="a" src="doge.png"></div>
+          <br>
+          <div class="img"><img class="player" data-key="l" src="grumpy.png"></div>
+        </div>
+        <br>
+        <div class="info"><p>To play as doge, press 'A'. To play as Grumpy Cat, press 'L'.</p></div>
+        <div class="playerStats">
+          <script id="players-template" type="text/x-handlebars-template">
+          {{#each players}}
+            <div class="inline">
+              <ul>
+                <h2>{{player}}</h2>
+                <li>Name: {{name}}</li>
+                <li>Favorite Color: {{favColor}}</li>
+                <li>Favorite Food: {{favFood}}</li>
+                <li>Motto: {{motto}}</li>
+              </ul>
+            </div>
+          {{/each}}
+        </script>
+        </div>
+      <button class="btn btn-lg btn-reset tmp-hidden" id="reset">Reset</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
