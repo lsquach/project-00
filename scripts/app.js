@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  // check to make sure JS is loaded
+  //Check to make sure JS is loaded
   console.log('JS is loaded!');
 
-  /*fetch source template and comple */
+  /* Fetch source template and comple */
   var source = $('#players-template').html();
   var template = Handlebars.compile(source);
   //console.log(source);
@@ -27,10 +27,15 @@ function Player(player, name, favColor, favFood, motto){
     /* End Object Attributes */
 }
 
-    //* Declare global variables
+    //Declare global variables
     var $doge = $('#doge');
     var $grumpy = $('#grumpy');
     $reset = $('#reset');
+
+    //Show Reset button when winner declared
+    var showReset = function() {
+      $reset.removeClass('tmp-hidden');
+    };
 
     //Reset game
     $('.btn').on('click', function() {
@@ -40,43 +45,37 @@ function Player(player, name, favColor, favFood, motto){
       $grumpy.css({left: 0});
     });
 
-    // reset button when winner declared
-    var showReset = function() {
-      $reset.removeClass('tmp-hidden');
-    };
-
-  //call function to initialize game
+  //Call function to initialize game
   raceHandler();
 
-    //* Player handler and check winner handler
+    //Race handler and check for winner
     function raceHandler () {
       $(window).on('keypress', function(e) {
 
-         //* Declare all local variables
+         //Declare local variables
           var dogePosition = $('#doge').position().left;
           var grumpyPosition = $('#grumpy').position().left;
           var $track = $('#track').width();
 
-          if ( (e.which === 97) && (dogePosition <  ($track * 0.90)) ) {
+          if ((e.which === 97) && (dogePosition <  ($track * 0.90))) {
             $doge.animate({'left': '+=50px'}, 10);
           }
 
-          else if ( (e.which === 97) && (dogePosition > ($track * 0.90) ) ) {
+          else if ( (e.which === 97) && (dogePosition > ($track * 0.90))) {
             $(window).off('keypress');
             showReset();
             alert('doge wins such happy');
           }
 
-          if ( (e.which === 108) && (grumpyPosition <  ($track * 0.90)) ) {
+          if ((e.which === 108) && (grumpyPosition <  ($track * 0.90))) {
             $grumpy.animate({left: '+=50px'}, 10);
           }
 
-          else if ( (e.which === 108) && (grumpyPosition > ($track * 0.90) ) ) {
+          else if ((e.which === 108) && (grumpyPosition > ($track * 0.90))) {
             $(window).off('keypress');
             showReset();
             alert ('Grumpy Cat wins? Whatever.');
           }
       });
     }
-// * End of document
 });
