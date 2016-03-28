@@ -6,9 +6,10 @@
 
 * JQuery
 * Handlebar
-* JavaScript
-* OOP
+* JavaScript (including OOP)
 * Bootstrap
+* HTML
+* CSS
 
 ## Existing Features
 
@@ -24,7 +25,6 @@
 
 ---
 
-##### Screenshot (optional)
 
-##### Link to hosted project on GitHub pages or BitBalloon (optional)
+##### Link to hosted project on GitHub
 https://github.com/lsquach/project-00
