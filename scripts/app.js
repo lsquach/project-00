@@ -33,12 +33,12 @@ function Player(player, name, favColor, favFood, motto){
     $reset = $('#reset');
 
     //Reset game
-      $('.btn').on('click', function() {
-        $reset.addClass('tmp-hidden');
-        raceHandler();
-        $doge.css({left: 0});
-        $grumpy.css({left: 0});
-      });
+    $('.btn').on('click', function() {
+      $reset.addClass('tmp-hidden');
+      raceHandler();
+      $doge.css({left: 0});
+      $grumpy.css({left: 0});
+    });
 
     // reset button when winner declared
     var showReset = function() {
@@ -54,28 +54,28 @@ function Player(player, name, favColor, favFood, motto){
 
          //* Declare all local variables
           var dogePosition = $('#doge').position().left;
-           var grumpyPosition = $('#grumpy').position().left;
-                var $track = $('#track').width();
+          var grumpyPosition = $('#grumpy').position().left;
+          var $track = $('#track').width();
 
-        if ( (e.which === 97) && (dogePosition <  ($track * 0.90)) ) {
-          $doge.animate({'left': '+=50px'}, 10);
-        }
+          if ( (e.which === 97) && (dogePosition <  ($track * 0.90)) ) {
+            $doge.animate({'left': '+=50px'}, 10);
+          }
 
-        else if ( (e.which === 97) && (dogePosition > ($track * 0.90) ) ) {
-          $(window).off('keypress');
-          showReset();
-          alert('doge wins such happy');
-        }
+          else if ( (e.which === 97) && (dogePosition > ($track * 0.90) ) ) {
+            $(window).off('keypress');
+            showReset();
+            alert('doge wins such happy');
+          }
 
-        if ( (e.which === 108) && (grumpyPosition <  ($track * 0.90)) ) {
-          $grumpy.animate({left: '+=50px'}, 10);
-        }
+          if ( (e.which === 108) && (grumpyPosition <  ($track * 0.90)) ) {
+            $grumpy.animate({left: '+=50px'}, 10);
+          }
 
-        else if ( (e.which === 108) && (grumpyPosition > ($track * 0.90) ) ) {
-          $(window).off('keypress');
-          showReset();
-          alert ('Grumpy Cat wins? Whatever.');
-        }
+          else if ( (e.which === 108) && (grumpyPosition > ($track * 0.90) ) ) {
+            $(window).off('keypress');
+            showReset();
+            alert ('Grumpy Cat wins? Whatever.');
+          }
       });
     }
 // * End of document

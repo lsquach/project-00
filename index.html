@@ -26,40 +26,40 @@
 
 
 </head>
-  <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="header">
-            <h1>Super Awesome Race</h1>
-          </div>
-            <div id='track'>
-              <div class="img"><img class="player" src="doge.png" id="doge"></div>
-              <br>
-              <div class="img"><img class="player" src="grumpy.png" id="grumpy"></div>
-            </div>
-          <div class="bottom">
-        <div class="info"><p>To play as doge, press 'A'. To play as Grumpy Cat, press 'L'.</p></div>
-        <h2 class="playerHeader">Player Stats</h2>
-        <div class="playerStats">
-          <script id="players-template" type="text/x-handlebars-template">
-            {{#each players}}
-            <div class="inline">
-              <ul>
-                <h2>{{player}}</h2>
-                <li>Name: {{name}}</li>
-                <li>Favorite Color: {{favColor}}</li>
-                <li>Favorite Food: {{favFood}}</li>
-                <li>Motto: {{motto}}</li>
-              </ul>
-            </div>
-            {{/each}}
-          </script>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="header">
+          <h1>Super Awesome Race</h1>
         </div>
-      <button class="btn btn-lg btn-reset tmp-hidden" id="reset">Reset</button>
+          <div id='track'>
+            <div class="img"><img class="player" src="doge.png" id="doge"></div>
+            <br>
+            <div class="img"><img class="player" src="grumpy.png" id="grumpy"></div>
+          </div>
+        <div class="bottom">
+          <div class="info"><p>To play as doge, press 'A'. To play as Grumpy Cat, press 'L'.</p></div>
+          <h2 class="playerHeader">Player Stats</h2>
+          <div class="playerStats">
+            <script id="players-template" type="text/x-handlebars-template">
+              {{#each players}}
+                <div class="inline">
+                  <ul>
+                    <h2>{{player}}</h2>
+                    <li>Name: {{name}}</li>
+                    <li>Favorite Color: {{favColor}}</li>
+                    <li>Favorite Food: {{favFood}}</li>
+                    <li>Motto: {{motto}}</li>
+                  </ul>
+                </div>
+                {{/each}}
+              </script>
+            </div>
+            <button class="btn btn-lg btn-reset tmp-hidden" id="reset">Reset</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</body>
+  </body>
 </html>
